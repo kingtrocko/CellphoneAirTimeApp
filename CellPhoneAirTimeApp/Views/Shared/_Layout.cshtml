@@ -1,0 +1,51 @@
+﻿@using System.Web.Optimization
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Recargas - Venta Tiempo Aire</title>
+
+    <!-- Global stylesheets -->
+    @Styles.Render("~/Content/css")
+    <!-- /global stylesheets -->
+
+</head>
+
+<body ng-app="main">
+    @Html.Partial("_NavBar")
+    <!-- Page container -->
+    <div class="page-container">
+        <!-- Page content -->
+        <div class="page-content">
+            @Html.Partial("_LeftSideBar")
+
+            @RenderBody()
+        </div>
+        <!-- /page content -->
+    </div>
+    <!-- /page container -->
+
+    @Scripts.Render("~/Content/core/js")
+    @Scripts.Render("~/Content/angular")
+    @Scripts.Render("~/Content/angular-route")
+    @Scripts.Render("~/Content/js/app")
+    <script type="text/javascript">
+        window.MyApp = {};
+    </script>
+    <script src="~/App/Validator.js"></script>
+    <script src="~/App/App.js"></script>
+    @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+        MyApp.rootPath = '@Url.Content("~")';
+        @RenderSection("jsCode", required: false)
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿@using System.Web.Optimization
+
+@section Scripts{
+
+    <script src="~/App/Components/Settings/App.js"></script>
+    <script src="~/App/Components/Settings/SettingsController.js"></script>
+    @Scripts.Render("~/Content/js/my_settings")
+}
+
+@section jsCode {
+      angular.bootstrap(document.getElementById("my-settings"), ['settings']);      
+}
+
+<!-- Main content  -->
+<div class="content-wrapper" id="my-settings" ng-controller="MySettingsController">
+    <!-- Page header -->
+    <div class="page-header">
+        <div class="page-header-content">
+            <div class="page-title">
+                <h4>
+                    <i class="icon-arrow-left52 position-left"></i>
+                    <span class="text-semibold">Mi configuración</span>
+                </h4>
+            </div>
+        </div>
+        <div class="breadcrumb-line">
+            <ul class="breadcrumb">
+                <li><a href="#"><i class="icon-home2 position-left"></i> Inicio</a></li>
+                <li class="active">Mi configuración</li>
+            </ul>
+        </div>
+    </div>
+    <!-- /page header -->
+    <!-- Content area -->
+    <div class="content">
+
+        <div class="row">
+            <div ng-view></div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer text-muted">
+            &copy; @DateTime.Now.Year
+        </div>
+        <!-- /footer -->
+
+    </div>
+    <!-- /content area -->
+</div>
+<!-- /main content -->
