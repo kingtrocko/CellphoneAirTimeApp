@@ -11,5 +11,12 @@ namespace Domain.Entities.Security
         public virtual string Size { get; set; }
         public virtual string Name { get; set; }
 
+        public virtual User User { get; set; }
+
+        public virtual void AddUser(User user)
+        {
+            User = user;
+        }
+
     }
 }

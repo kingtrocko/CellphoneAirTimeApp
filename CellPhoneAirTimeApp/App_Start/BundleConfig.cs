@@ -47,10 +47,15 @@ namespace CellPhoneAirTimeApp
             bundles.Add(new ScriptBundle("~/Content/js/app").Include(
                 "~/assets/js/core/app.js"));
 
+            bundles.Add(new ScriptBundle("~/Content/js/libs").Include(
+                "~/assets/js/plugins/forms/selects/select2.min.js"));
+
             //"~/assets/js/pages/my_settings.js",
             bundles.Add(new ScriptBundle("~/Content/js/my_settings").Include(
-                "~/assets/js/plugins/forms/styling/uniform.min.js",
-                "~/assets/js/plugins/forms/selects/select2.min.js"));
+                "~/assets/js/plugins/forms/styling/uniform.min.js"));
+
+            bundles.Add(new ScriptBundle("~/Content/js/users").Include(
+                "~/assets/js/plugins/tables/datatables/datatables.min.js"));
         }
     }
 }

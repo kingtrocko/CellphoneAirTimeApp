@@ -5,10 +5,32 @@
         $scope.viewModelHelper = viewModelHelper;
         $scope.settingsService = settingsService;
 
+        var resetPasswordObj = {
+            password: '',
+            confirmPassword: ''
+        }
 
         var initialize = function () {
-            $scope.headingCaptionSettings = 'Caption from Controller';
-            $scope.randomText = 'Some Random Text';
+            $scope.getSettings();
+            $scope.passwordObject = resetPasswordObj;
+        }
+
+        $scope.getSettings = function() {
+            viewModelHelper.apiGet('api/account/settings', null, function (result) {
+                var user = {};
+                user = result.data;
+                user.role = 'Administrador';
+
+                $scope.user = user;
+                console.log(result);
+
+            });
+        }
+
+        $scope.resetPassword = function() {
+            viewModelHelper.apiPut('api/account/settings', null, function(result) {
+
+            });
         }
 
         initialize();

@@ -44,18 +44,17 @@ commonModule.factory('validator', function () { return valJs.validator(); });
                 });
         }
 
-        self.apiPost = function (uri, data, success, failure, always) {
+        self.apiPost = function(uri, data, success, failure, always) {
             self.modelIsValid = true;
             $http.post(MyApp.rootPath + uri, data)
-                .then(function (result) {
+                .then(function(result) {
                     success(result);
                     if (always != null)
                         always();
-                }, function (result) {
+                }, function(result) {
                     if (failure != null) {
                         failure(result);
-                    }
-                    else {
+                    } else {
                         var errorMessage = result.status + ':' + result.statusText;
                         if (result.data != null && result.data.Message != null)
                             errorMessage += ' - ' + result.data.Message;
@@ -66,6 +65,29 @@ commonModule.factory('validator', function () { return valJs.validator(); });
                         always();
                 });
         }
+
+        self.apiPut = function(uri, data, success, failure, always) {
+            self.modelIsValid = true;
+            $http.put(MyApp.rootPath + uri, data)
+                .then(function(result) {
+                    success(result);
+                    if (always != null)
+                        always();
+                }, function(result) {
+                    if (failure != null) {
+                        failure(result);
+                    } else {
+                        var errorMessage = result.status + ':' + result.statusText;
+                        if (result.data != null && result.data.Message != null)
+                            errorMessage += ' - ' + result.data.Message;
+                        self.modelErrors = [errorMessage];
+                        self.modelIsValid = false;
+                    }
+                    if (always != null)
+                        always();
+                });
+        }
+
 
         self.goBack = function () {
             $window.history.back();
@@ -80,7 +102,7 @@ commonModule.factory('validator', function () { return valJs.validator(); });
         }
 
         self.clone = function (obj) {
-            return JSON.parse(JSON.stringify(obj))
+            return JSON.parse(JSON.stringify(obj));
         }
 
         return this;

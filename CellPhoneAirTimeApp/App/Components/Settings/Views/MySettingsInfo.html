@@ -1,122 +1,118 @@
 ﻿<script src="../../../../assets/js/pages/my_settings.js"></script>
 
 <div class="col-lg-9">
-    <!-- Profile info -->
-    <div class="panel panel-flat">
-        <div class="panel-heading">
-            <h6 class="panel-title">Información Personal</h6>
-        </div>
-        <div class="panel-body">
-            <form action="#">
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label>Nombre</label>
-                            <input type="text" value="" class="form-control">
-                        </div>
-                        <div class="col-md-6">
-                            <label>Apellido</label>
-                            <input type="text" value="" class="form-control">
-                        </div>
+    <div class="tabbable">
+        <div class="tab-content">
+            <div class="tab-pane fade in active" id="settings">
+                <!-- Profile info -->
+                <div class="panel panel-flat">
+                    <div class="panel-heading">
+                        <h6 class="panel-title">Información Personal</h6>
+                    </div>
+                    <div class="panel-body">
+                        <form action="#">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Nombre</label>
+                                        <input ng-model="user.firstName" type="text" value="" class="form-control">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Apellido</label>
+                                        <input ng-model="user.lastName" type="text" value="" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Dirección 1</label>
+                                        <input ng-model="user.address1" type="text" value="" class="form-control">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Dirección 2</label>
+                                        <input ng-model="user.address2" type="text" value="" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Ciudad</label>
+                                        <input type="text" value="" class="form-control">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Estado/Provincia</label>
+                                        <input type="text" value="" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Usuario</label>
+                                        <input ng-model="user.userName" type="text" value="" class="form-control">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Mi Correo</label>
+                                        <input ng-model="user.email" type="text" value="" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Número de Teléfono</label>
+                                        <input type="text" ng-model="user.phoneNumber" class="form-control">
+                                        <span class="help-block">+99-99-9999-9999</span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Cargar Imagen de perfil</label>
+                                        <input type="file" class="file-styled">
+                                        <span class="help-block">Formatos permitidos: gif, png, jpg. Tamaño Max. archivo 2Mb</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <button type="submit" class="btn btn-primary">Guardar <i class="icon-arrow-right14 position-right"></i></button>
+                            </div>
+                        </form>
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label>Dirección 1</label>
-                            <input type="text" value="" class="form-control">
-                        </div>
-                        <div class="col-md-6">
-                            <label>Dirección 2</label>
-                            <input type="text" value="" class="form-control">
-                        </div>
+                <!-- /profile info -->
+            </div>
+
+            <div class="tab-pane fade" id="reset-password-form">
+                <!-- Account settings -->
+                <div class="panel panel-flat">
+                    <div class="panel-heading">
+                        <h6 class="panel-title">Cambiar mi contraseña</h6>
+                    </div>
+                    <div class="panel-body">
+                        <form action="#">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Nueva contraseña</label>
+                                        <input type="password" placeholder="Ingrese una nueva contraseña" class="form-control">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Repetir nueva contraseña</label>
+                                        <input type="password" placeholder="Repita la nueva contraseña" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <button type="submit" class="btn btn-primary">Guardar <i class="icon-arrow-right14 position-right"></i></button>
+                            </div>
+                        </form>
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label>Ciudad</label>
-                            <input type="text" value="" class="form-control">
-                        </div>
-                        <div class="col-md-6">
-                            <label>Estado/Provincia</label>
-                            <input type="text" value="" class="form-control">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label>Mi Correo</label>
-                            <input type="text" value="" class="form-control">
-                        </div>
-                        <div class="col-md-6">
-                            <label>Mi Pais</label>
-                            <select class="select">
-                                <option value="mx" selected="selected">Mexico</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label>Número de Teléfono</label>
-                            <input type="text" value="+99-99-9999-9999" class="form-control">
-                            <span class="help-block">+99-99-9999-9999</span>
-                        </div>
-                        <div class="col-md-6">
-                            <label>Cargar Imagen de perfil</label>
-                            <input type="file" class="file-styled">
-                            <span class="help-block">Formatos permitidos: gif, png, jpg. Tamaño Max. archivo 2Mb</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-right">
-                    <button type="submit" class="btn btn-primary">Guardar <i class="icon-arrow-right14 position-right"></i></button>
-                </div>
-            </form>
-        </div>
+                <!-- /account settings -->
+            </div>
+
+         </div>
     </div>
-    <!-- /profile info -->
-    <!-- Account settings -->
-    <div class="panel panel-flat">
-        <div class="panel-heading">
-            <h6 class="panel-title">Configuración de Mi Cuenta</h6>
-        </div>
-        <div class="panel-body">
-            <form action="#">
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label>Usuario</label>
-                            <input type="text" value="" class="form-control">
-                        </div>
-                        <div class="col-md-6">
-                            <label>Contraseña actual</label>
-                            <input type="password" class="form-control">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label>Nueva contraseña</label>
-                            <input type="password" placeholder="Enter new password" class="form-control">
-                        </div>
-                        <div class="col-md-6">
-                            <label>Repetir nueva contraseña</label>
-                            <input type="password" placeholder="Repeat new password" class="form-control">
-                        </div>
-                    </div>
-                </div>
-                <div class="text-right">
-                    <button type="submit" class="btn btn-primary">Guardar <i class="icon-arrow-right14 position-right"></i></button>
-                </div>
-            </form>
-        </div>
-    </div>
-    <!-- /account settings -->
 </div>
 
 <div class="col-lg-3">
@@ -133,7 +129,9 @@
         </div>
 
         <div class="caption text-center">
-            <h6 class="text-semibold no-margin">Marcelo Marroquín<small class="display-block">Administrador</small></h6>
+            <h6 class="text-semibold no-margin">{{user.fullName}}
+                <small class="display-block">{{ user.role }}</small>
+            </h6>
         </div>
     </div>
     <!-- /user thumbnail -->

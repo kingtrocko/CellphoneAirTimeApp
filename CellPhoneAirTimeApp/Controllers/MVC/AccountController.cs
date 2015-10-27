@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
+﻿using System.Configuration;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using DataAccess.Helpers;
 using DataAccess.Repositories;
 using Domain.Entities.Security;
 
-namespace CellPhoneAirTimeApp.Controllers
+namespace CellPhoneAirTimeApp.Controllers.MVC
 {
     public class AccountController : Controller
     {

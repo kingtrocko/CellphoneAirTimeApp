@@ -204,6 +204,7 @@
     <Content Include="assets\js\layout_fixed_custom.js" />
     <Content Include="assets\js\navbar_fixed_secondary.js" />
     <Content Include="assets\js\pages\my_settings.js" />
+    <Content Include="assets\js\pages\my_users.js" />
     <Content Include="assets\js\plugins\buttons\hover_dropdown.min.js" />
     <Content Include="assets\js\plugins\buttons\ladda.min.js" />
     <Content Include="assets\js\plugins\buttons\spin.min.js" />
@@ -1171,9 +1172,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\API\AccountController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MVC\AccountController.cs" />
+    <Compile Include="Controllers\API\AccountApiController.cs" />
+    <Compile Include="Controllers\MVC\SecurityController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1407,6 +1408,9 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="Views\Security\Privileges.cshtml" />
+    <Content Include="Views\Security\Roles.cshtml" />
+    <Content Include="Views\Security\Users.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1438,7 +1442,6 @@
     <Folder Include="assets\css\components\ui\" />
     <Folder Include="assets\css\core\layout\" />
     <Folder Include="assets\css\core\variables\" />
-    <Folder Include="Controllers\MVC\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">

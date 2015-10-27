@@ -18,11 +18,7 @@ settingsModule.factory('settingsService', ['$rootScope', '$http', '$q', '$locati
 
 (
     function(myApp) {
-        var settingsService = function($rootScope, $http, $q, $location, viewModelHelper) {
-
-            var self = this;
-
-            self.customerId = 0;
+        var settingsService = function($rootScope, $http, $q, $location, viewModelHelper) {           
 
             return this;
         };

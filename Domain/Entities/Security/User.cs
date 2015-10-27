@@ -12,14 +12,11 @@ namespace Domain.Entities.Security
         public virtual string Email { get; set; }
         public virtual string UserName { get; set; }
         public virtual string Password { get; set; }
-        public virtual UserImage Image { get; set; }
-        public virtual void AddImage(UserImage image)
+        public virtual UserStatus UserStatus  { get; set; }
+        
+        public virtual void AddStatus(UserStatus status)
         {
-            Image = image;
+            UserStatus = status;
         }
-
-
-
-
     }
 }

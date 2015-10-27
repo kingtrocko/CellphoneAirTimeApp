@@ -5,30 +5,45 @@
     <script src="~/App/Components/Settings/App.js"></script>
     <script src="~/App/Components/Settings/SettingsController.js"></script>
     @Scripts.Render("~/Content/js/my_settings")
+    @Scripts.Render("~/Content/js/libs")
 }
 
 @section jsCode {
-      angular.bootstrap(document.getElementById("my-settings"), ['settings']);      
+      angular.bootstrap(document.getElementById("my-settings"), ['settings']);
 }
 
 <!-- Main content  -->
 <div class="content-wrapper" id="my-settings" ng-controller="MySettingsController">
     <!-- Page header -->
     <div class="page-header">
+        <!-- Header content -->
         <div class="page-header-content">
             <div class="page-title">
                 <h4>
                     <i class="icon-arrow-left52 position-left"></i>
                     <span class="text-semibold">Mi configuración</span>
                 </h4>
+                <ul class="breadcrumb position-right">
+                    <li><a href="#">Inicio</a></li>
+                    <li class="active">Mi configuración</li>
+                </ul>
             </div>
         </div>
-        <div class="breadcrumb-line">
-            <ul class="breadcrumb">
-                <li><a href="#"><i class="icon-home2 position-left"></i> Inicio</a></li>
-                <li class="active">Mi configuración</li>
+        <!-- /header content -->
+
+        <!-- Toolbar -->
+        <div class="navbar navbar-default navbar-component navbar-xs">
+            <ul class="nav navbar-nav visible-xs-block">
+                <li class="full-width text-center"><a data-toggle="collapse" data-target="#navbar-filter"><i class="icon-menu7"></i></a></li>
             </ul>
+            <div class="navbar-collapse collapse" id="navbar-filter">
+                <ul class="nav navbar-nav element-active-slate-400">
+                    <li class="active"><a data-target="#settings" data-toggle="tab"><i class="icon-cog3 position-left"></i>Configuración de cuenta</a></li>
+                    <li><a data-target="#reset-password-form" data-toggle="tab"><i class="icon-cog3 position-left"></i>Cambiar contraseña</a></li>
+                </ul>
+            </div>
         </div>
+        <!-- /toolbar -->
     </div>
     <!-- /page header -->
     <!-- Content area -->
