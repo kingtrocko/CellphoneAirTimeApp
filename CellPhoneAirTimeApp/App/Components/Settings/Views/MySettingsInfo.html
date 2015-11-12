@@ -1,37 +1,42 @@
-﻿<script src="../../../../assets/js/pages/my_settings.js"></script>
+﻿
+<script src="../../../../assets/js/plugins/forms/validation/validate.min.js"></script>
+<script src="../../../../assets/js/plugins/forms/validation/localization/messages_es.min.js"></script>
+<script src="../../../../assets/js/pages/my_settings.js"></script>
 
-<div class="col-lg-9">
+
+<div class="col-lg-9" ng-controller="MySettingsController">
     <div class="tabbable">
         <div class="tab-content">
             <div class="tab-pane fade in active" id="settings">
                 <!-- Profile info -->
-                <div class="panel panel-flat">
+                <div class="panel panel-default">
                     <div class="panel-heading">
                         <h6 class="panel-title">Información Personal</h6>
                     </div>
                     <div class="panel-body">
-                        <form action="#">
+                        <form name="settings-form" ng-submit="onSubmitSettingsForm()">
+                            <div id="selist" server-errors></div>
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <label>Nombre</label>
-                                        <input ng-model="user.firstName" type="text" value="" class="form-control">
+                                        <label>Nombre <span class="text-danger">*</span></label>
+                                        <input name="user_name" required="required" ng-model="settingsService.firstName" type="text" value="" class="form-control">
                                     </div>
                                     <div class="col-md-6">
-                                        <label>Apellido</label>
-                                        <input ng-model="user.lastName" type="text" value="" class="form-control">
+                                        <label>Apellido <span class="text-danger">*</span></label>
+                                        <input name="user_last_name" required="required" ng-model="settingsService.lastName" type="text" value="" class="form-control">
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <label>Dirección 1</label>
-                                        <input ng-model="user.address1" type="text" value="" class="form-control">
+                                        <label>Dirección 1 <span class="text-danger">*</span></label>
+                                        <input name="address1" required="required" ng-model="settingsService.address1" type="text" value="" class="form-control">
                                     </div>
                                     <div class="col-md-6">
                                         <label>Dirección 2</label>
-                                        <input ng-model="user.address2" type="text" value="" class="form-control">
+                                        <input name="address2" ng-model="settingsService.address2" type="text" value="" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -50,20 +55,20 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <label>Usuario</label>
-                                        <input ng-model="user.userName" type="text" value="" class="form-control">
+                                        <label>Usuario <span class="text-danger">*</span></label>
+                                        <input name="username" required="required" ng-model="settingsService.userName" type="text" value="" class="form-control">
                                     </div>
                                     <div class="col-md-6">
-                                        <label>Mi Correo</label>
-                                        <input ng-model="user.email" type="text" value="" class="form-control">
+                                        <label>Mi Correo <span class="text-danger">*</span></label>
+                                        <input name="email" required="required" ng-model="settingsService.email" type="text" value="" class="form-control">
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <label>Número de Teléfono</label>
-                                        <input type="text" ng-model="user.phoneNumber" class="form-control">
+                                        <label>Número de Teléfono <span class="text-danger">*</span></label>
+                                        <input name="phonenumber" required="required" type="text" ng-model="settingsService.phoneNumber" class="form-control">
                                         <span class="help-block">+99-99-9999-9999</span>
                                     </div>
                                     <div class="col-md-6">
@@ -74,7 +79,9 @@
                                 </div>
                             </div>
                             <div class="text-right">
-                                <button type="submit" class="btn btn-primary">Guardar <i class="icon-arrow-right14 position-right"></i></button>
+                                <button type="submit" class="btn btn-primary">
+                                    Guardar <i class="icon-arrow-right14 position-right"></i>
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -89,21 +96,35 @@
                         <h6 class="panel-title">Cambiar mi contraseña</h6>
                     </div>
                     <div class="panel-body">
-                        <form action="#">
+                        <form name="reset-password-form" ng-submit="onSubmitResetPasswordForm()">
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <label>Nueva contraseña</label>
-                                        <input type="password" placeholder="Ingrese una nueva contraseña" class="form-control">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label>Nueva contraseña <span class="text-danger">*</span></label>
+                                                    <input id="password" ng-model="settingsService.password" required="required" type="password" name="password" placeholder="Ingrese una nueva contraseña" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <label>Repetir nueva contraseña</label>
-                                        <input type="password" placeholder="Repita la nueva contraseña" class="form-control">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label>Repetir nueva contraseña <span class="text-danger">*</span></label>
+                                                    <input ng-model="settingsService.confirmPassword" required="required" type="password" name="repeat_password" placeholder="Repita la nueva contraseña" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="text-right">
-                                <button type="submit" class="btn btn-primary">Guardar <i class="icon-arrow-right14 position-right"></i></button>
+                                <button type="submit" class="btn btn-primary">
+                                    Guardar<i class="icon-arrow-right14 position-right"></i>
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -111,7 +132,7 @@
                 <!-- /account settings -->
             </div>
 
-         </div>
+        </div>
     </div>
 </div>
 
@@ -129,8 +150,8 @@
         </div>
 
         <div class="caption text-center">
-            <h6 class="text-semibold no-margin">{{user.fullName}}
-                <small class="display-block">{{ user.role }}</small>
+            <h6 class="text-semibold no-margin">{{settingsService.fullName}}
+                <small class="display-block">{{ settingsService.role }}</small>
             </h6>
         </div>
     </div>

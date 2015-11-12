@@ -1,0 +1,43 @@
+﻿<script src="/assets/js/pages/datatable.js"></script>
+
+
+<div style="padding-bottom: 0;" class="page-header page-header-xs panel border-top-primary">
+    <div class="page-header-content">
+        <div class="page-title">
+            <h5><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">Mis Usuarios</span></h5>
+        </div>
+        <a class="heading-elements-toggle"><i class="icon-menu"></i></a>
+    </div>
+    <div style="box-shadow: none;" class="breadcrumb-line breadcrumb-line-wide">
+        <ul class="breadcrumb">
+            <li><a><i class="icon-home2 position-left"></i> Inicio</a></li>
+            <li><a>Seguridad</a></li>
+            <li class="active">Usuarios</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Basic datatable -->
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h5 class="panel-title">Lista de Usuarios</h5>
+        <div class="heading-elements">
+            <button class="btn btn-primary heading-btn" ng-click="goToNewUserForm()" type="button">Nuevo usuario</button>
+        </div>
+    </div>
+    <table class="table dt-users">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre completo</th>
+            <th>Usuario</th>
+            <th>Correo</th>
+            <th>Dirección</th>
+            <th>Teléfono</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+
+    </table>
+</div>
+<!-- /basic datatable -->

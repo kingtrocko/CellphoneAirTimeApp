@@ -41,8 +41,8 @@
   <ItemGroup>
     <Compile Include="Entities\Security\Privilege.cs" />
     <Compile Include="Entities\Security\Role.cs" />
-    <Compile Include="Entities\Security\RolesPerPrivilege.cs" />
-    <Compile Include="Entities\Security\RolesPerUser.cs" />
+    <Compile Include="Entities\Security\RolesPerPrivileges.cs" />
+    <Compile Include="Entities\Security\RolesPerUsers.cs" />
     <Compile Include="Entities\Security\UserImage.cs" />
     <Compile Include="Entities\Security\User.cs" />
     <Compile Include="Entities\Security\UserStatus.cs" />

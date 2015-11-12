@@ -1,7 +1,35 @@
-﻿
-@{
-    ViewBag.Title = "Roles";
+﻿@using System.Web.Optimization
+
+@section Scripts{
+    <script src="~/App/Components/Roles/App.js"></script>
+    <script src="~/App/Components/Roles/RolesListController.js"></script>
+    <script src="~/App/Components/Roles/NewRoleController.js"></script>
+    @Scripts.Render("~/Content/js/datatable")
+    @Scripts.Render("~/Content/js/libs")
+    <script src="~/assets/js/pages/datatable.js"></script>
 }
 
-<h2>Roles</h2>
+@section jsCode {
+    angular.bootstrap(document.getElementById("roles"), ['role']);
+}
 
+
+<!-- Main content  -->
+<div class="content-wrapper" id="roles">
+
+    <!-- Content area -->
+    <div class="content">
+
+        <div ng-view></div>
+
+
+        <!-- Footer -->
+        <div class="footer text-muted">
+            &copy; @DateTime.Now.Year
+        </div>
+        <!-- /footer -->
+
+    </div>
+    <!-- /content area -->
+</div>
+<!-- /main content -->

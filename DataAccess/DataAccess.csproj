@@ -51,6 +51,10 @@
     <Compile Include="Helpers\IUnitOfWork.cs" />
     <Compile Include="Helpers\NHibernateHelper.cs" />
     <Compile Include="Helpers\UnitOfWork.cs" />
+    <Compile Include="Mappings\Security\PrivilegeMap.cs" />
+    <Compile Include="Mappings\Security\RolesPerPrivilegesMap.cs" />
+    <Compile Include="Mappings\Security\RoleMap.cs" />
+    <Compile Include="Mappings\Security\RolesPerUsersMap.cs" />
     <Compile Include="Mappings\Security\UserImageMap.cs" />
     <Compile Include="Mappings\Security\UserMap.cs" />
     <Compile Include="Mappings\Security\UserStatusMap.cs" />

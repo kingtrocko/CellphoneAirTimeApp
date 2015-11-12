@@ -1,4 +1,6 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -15,9 +17,10 @@ namespace CellPhoneAirTimeApp.Controllers.API
         protected static UnitOfWork UoW;
 
         [NonAction]
-        public Repository Repository()
+        private Repository Repository()
         {
-            UoW = new UnitOfWork(new NHibernateHelper(ConfigurationManager.ConnectionStrings["DevelopmentConnectionString"].ConnectionString).SessionFactory);
+            var connectionString = ConfigurationManager.ConnectionStrings["DevelopmentConnectionString"].ConnectionString;
+            UoW = new UnitOfWork(new NHibernateHelper(connectionString).SessionFactory);
             var repository = new Repository(UoW.Session);
             return repository;
         }
@@ -26,30 +29,82 @@ namespace CellPhoneAirTimeApp.Controllers.API
         [HttpGet]
         public HttpResponseMessage GetAccountSettings(HttpRequestMessage request)
         {
-            var result = Repository().First<User>(u => u.Id == 1);
-            var user = new UserModel
+            try
             {
-                FirstName = result.FirstName,
-                LastName = result.LastName,
-                Address1 = result.Address1,
-                Address2 = result.Address2,
-                PhoneNumber = result.PhoneNumber,
-                UserName = result.UserName,
-                Email = result.Email,
-                FullName = result.FirstName + " " + result.LastName
-            };
-            return request.CreateResponse(HttpStatusCode.OK, user);
+                var result = Repository().First<User>(u => u.Id == 1);
+                UoW.Dispose();
+                var user = new UserModel
+                {
+                    FirstName = result.FirstName,
+                    LastName = result.LastName,
+                    Address1 = result.Address1,
+                    Address2 = result.Address2,
+                    PhoneNumber = result.PhoneNumber,
+                    UserName = result.UserName,
+                    Email = result.Email,
+                    FullName = result.FirstName + " " + result.LastName
+                };
+                return request.CreateResponse(HttpStatusCode.OK, user);
+            }
+            catch (Exception)
+            {
+                return request.CreateResponse(HttpStatusCode.InternalServerError, "error getting info from db");
+            }
         }
 
         [HttpPut]
-        [Route("account/settings")]
-        public HttpResponseMessage UpdateUserSettings(HttpRequestMessage request, ResetPasswordModel model)
+        [Route("account/settings/reset-password")]
+        public HttpResponseMessage ResetUserPassword(HttpRequestMessage request, ResetPasswordModel model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid) return request.CreateResponse(HttpStatusCode.BadRequest, "error");
+            try
             {
-                return request.CreateResponse(HttpStatusCode.OK, "updated");
+                var repo = Repository();
+                var currentUser = repo.FindBy<User>(1);
+                    
+                currentUser.Password = model.Password;
+                   
+                repo.Update(currentUser);
+                UoW.Commit();
+                UoW.Dispose();
+                return request.CreateResponse(HttpStatusCode.OK, "updated password");
             }
-            return null;
+            catch (Exception)
+            {
+                return request.CreateResponse(HttpStatusCode.InternalServerError, "password not updated");
+            }
         }
+
+
+        [HttpPut]
+        [Route("account/settings/update")]
+        public HttpResponseMessage UpdateUserSettings(HttpRequestMessage request, UserModel model)
+        {
+            if (!ModelState.IsValid) return request.CreateResponse(HttpStatusCode.BadRequest, "error");
+            try
+            {
+                var repo = Repository();
+                var currentUser = repo.FindBy<User>(1);
+
+                currentUser.FirstName = model.FirstName;
+                currentUser.LastName = model.LastName;
+                currentUser.Address1 = model.Address1;
+                currentUser.Address2 = model.Address2;
+                currentUser.Email = model.Email;
+                currentUser.UserName = model.UserName;
+                currentUser.PhoneNumber = model.PhoneNumber;
+
+                repo.Update(currentUser);
+                UoW.Commit();
+                UoW.Dispose();
+
+                return request.CreateResponse(HttpStatusCode.OK, "updated settings");
+            }
+            catch (Exception)
+            {
+                return request.CreateResponse(HttpStatusCode.InternalServerError, "not updated ");
+            }
+        }
+
     }
 }

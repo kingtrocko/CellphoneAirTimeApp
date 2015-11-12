@@ -1,0 +1,9 @@
+﻿<div ng-if="remoteErrors.length > 0" class="alert alert-danger alert-bordered">
+    <span class="text-semibold">No se pudo guardar la información. Ocurrieron algunos errores!</span>
+    <ul ng-repeat="e in remoteErrors">
+        <li>{{e}}</li>
+    </ul>
+</div>
+<div ng-if="showGenericServerError == true" class="alert alert-danger alert-bordered">
+    <span class="text-semibold">Ocurrió un error interno en el servidor y no se pudo procesar la acción.</span>
+</div>

@@ -1,0 +1,52 @@
+﻿<div style="padding-bottom: 0;" class="page-header page-header-xs panel border-top-primary">
+    <div class="page-header-content">
+        <div class="page-title">
+            <h5><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">Privilégios del sistema</span></h5>
+        </div>
+        <a class="heading-elements-toggle"><i class="icon-menu"></i></a>
+    </div>
+    <div style="box-shadow: none;" class="breadcrumb-line breadcrumb-line-wide">
+        <ul class="breadcrumb">
+            <li><a><i class="icon-home2 position-left"></i> Inicio</a></li>
+            <li><a>Seguridad</a></li>
+            <li>Privilegios</li>
+            <li class="active">Nuevo</li>
+        </ul>
+    </div>
+</div>
+
+<form action="#">
+    <div class="panel panel-flat">
+        <div class="panel-heading">
+            <h5 class="panel-title">Nuevo Privilégio</h5>
+            <div class="heading-elements">
+                <ul class="icons-list">
+                    <li><a data-action="reload"></a></li>
+                    <li ng-click="navigateToPrivilegesLis()"><a data-action="close"></a></li>
+                </ul>
+            </div>
+            <a class="heading-elements-toggle"><i class="icon-menu"></i></a>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <fieldset class="text-semibold">
+                        <div class="form-group">
+                            <label>Nombre:</label>
+                            <input type="text" placeholder="" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Descripción:</label>
+                            <textarea placeholder="Escribe una descripción para este privilégio" class="form-control" cols="5" rows="5"></textarea>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="text-right">
+                <button class="btn btn-primary" type="submit">
+                    Guardar <i class="icon-arrow-right14 position-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</form>

@@ -42,7 +42,9 @@ namespace CellPhoneAirTimeApp
 
             bundles.Add(new ScriptBundle("~/Content/core/js").Include(
                 "~/assets/js/core/libraries/jquery.min.js",
-                "~/assets/js/core/libraries/bootstrap.min.js"));
+                "~/assets/js/core/libraries/bootstrap.min.js",
+                "~/assets/js/plugins/loaders/blockui.min.js",
+                "~/assets/js/plugins/notifications/pnotify.min.js"));
 
             bundles.Add(new ScriptBundle("~/Content/js/app").Include(
                 "~/assets/js/core/app.js"));
@@ -50,11 +52,14 @@ namespace CellPhoneAirTimeApp
             bundles.Add(new ScriptBundle("~/Content/js/libs").Include(
                 "~/assets/js/plugins/forms/selects/select2.min.js"));
 
+            bundles.Add(new ScriptBundle("~/Content/js/listbox").Include(
+                "~/assets/js/plugins/forms/inputs/duallistbox.min.js"));
+
             //"~/assets/js/pages/my_settings.js",
             bundles.Add(new ScriptBundle("~/Content/js/my_settings").Include(
                 "~/assets/js/plugins/forms/styling/uniform.min.js"));
 
-            bundles.Add(new ScriptBundle("~/Content/js/users").Include(
+            bundles.Add(new ScriptBundle("~/Content/js/datatable").Include(
                 "~/assets/js/plugins/tables/datatables/datatables.min.js"));
         }
     }

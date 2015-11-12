@@ -6,6 +6,9 @@ namespace CellPhoneAirTimeApp.Models
 {
     public class UserModel
     {
+        [ReadOnly(true)]
+        public int Id { get; set; }
+
         [Required(ErrorMessage = "El campo 'Primer Nombre' es requerido")]
         [Display(Name = "Nombre")]
         public string FirstName { get; set; }
@@ -14,6 +17,7 @@ namespace CellPhoneAirTimeApp.Models
         [Display(Name = "Apellido")]
         public string LastName { get; set; }
 
+        [ReadOnly(true)]
         public string FullName { get; set; }
 
         [Required(ErrorMessage = "El campo 'Direccion 1' es requerido")]
@@ -33,6 +37,9 @@ namespace CellPhoneAirTimeApp.Models
         [Required(ErrorMessage = "El campo 'Usuario' es requerido")]
         [Display(Name = "Usuario")]
         public string UserName { get; set; }
+
+        [ReadOnly(true)]
+        public string Status { get; set; }
     }
 
     public class ResetPasswordModel
@@ -40,11 +47,37 @@ namespace CellPhoneAirTimeApp.Models
         [Required]
         [StringLength(16, ErrorMessage = "La {0} debe tener al menos {2} carácteres de longitud.", MinimumLength = 6)]
         [DataType(DataType.Password)]
+        [Display(Name = "Contraseña")]
         public string Password { get; set; }
 
-        [Required]
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "Las constraseñas no coinciden.")]
+        [Display(Name = "Confirmar contraseña")]
         public string ConfirmPassword { get; set; }
+    }
+
+    public class PrivilegeModel
+    {
+        public int Id { get; set; }
+
+        [Required]
+        public string Name { get; set; }
+
+        [Required]
+        public string Description { get; set; }
+    }
+
+    public class RoleModel
+    {
+        public int Id { get; set; }
+
+        [Required]
+        public string Name { get; set; }
+
+        [Required]
+        public string Description { get; set; }
+
+        public bool IsSysAdmin { get; set; }
+
     }
 }

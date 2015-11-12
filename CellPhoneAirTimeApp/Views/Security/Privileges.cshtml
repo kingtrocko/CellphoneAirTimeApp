@@ -1,7 +1,36 @@
-﻿
-@{
-    ViewBag.Title = "Privileges";
+﻿@using System.Web.Optimization
+
+@section Scripts{
+    <script src="~/App/Components/Privileges/App.js"></script>
+    <script src="~/App/Components/Privileges/PrivilegesListController.js"></script>
+    <script src="~/App/Components/Privileges/NewPrivilegeController.js"></script>
+    @Scripts.Render("~/Content/js/datatable")
+    @Scripts.Render("~/Content/js/libs")
+    <script src="~/assets/js/pages/datatable.js"></script>
 }
 
-<h2>Privileges</h2>
+@section jsCode {
+    angular.bootstrap(document.getElementById("privileges"), ['privilege']);
+}
 
+
+
+<!-- Main content  -->
+<div class="content-wrapper" id="privileges" >
+
+    <!-- Content area -->
+    <div class="content">
+
+        <div ng-view></div>
+
+
+        <!-- Footer -->
+        <div class="footer text-muted">
+            &copy; @DateTime.Now.Year
+        </div>
+        <!-- /footer -->
+
+    </div>
+    <!-- /content area -->
+</div>
+<!-- /main content -->

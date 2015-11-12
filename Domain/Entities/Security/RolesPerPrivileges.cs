@@ -1,7 +1,10 @@
-﻿namespace Domain.Entities.Security
+﻿using System;
+
+namespace Domain.Entities.Security
 {
-    public class RolesPerPrivilege
+    public class RolesPerPrivileges
     {
+        public virtual int Id { get; set; }
         public virtual Privilege Privilege { get; set; }
         public virtual Role Role { get; set; }
 

@@ -1,0 +1,120 @@
+﻿<script src="/assets/js/pages/new_user.js"></script>
+
+<div style="padding-bottom: 0;" class="page-header page-header-xs panel border-top-primary">
+    <div class="page-header-content">
+        <div class="page-title">
+            <h5><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">Mis Usuarios</span></h5>
+        </div>
+        <a class="heading-elements-toggle"><i class="icon-menu"></i></a>
+    </div>
+    <div style="box-shadow: none;" class="breadcrumb-line breadcrumb-line-wide">
+        <ul class="breadcrumb">
+            <li><a><i class="icon-home2 position-left"></i> Inicio</a></li>
+            <li><a>Seguridad</a></li>
+            <li>Usuarios</li>
+            <li class="active">Nuevo</li>
+        </ul>
+    </div>
+</div>
+
+<!-- 2 columns form -->
+<form class="form-horizontal" action="#">
+    <div class="panel panel-flat">
+        <div class="panel-heading">
+            <h5 class="panel-title">Nuevo Usuario</h5>
+            <div class="heading-elements">
+                <ul class="icons-list">
+                    <li><a data-action="reload"></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <fieldset>
+                        <legend class="text-semibold"><i class="icon-reading position-left"></i> Detalles personales</legend>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Nombre:</label>
+                            <div class="col-lg-9">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <input type="text" placeholder="Primer nombre" class="form-control">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" placeholder="Apellido" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Email:</label>
+                            <div class="col-lg-9">
+                                <input type="text" placeholder="usuarionuevo@dominio.com" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label"># Teléfono:</label>
+                            <div class="col-lg-9">
+                                <input type="text" placeholder="+99-99-9999-9999" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Dirección 1:</label>
+                            <div class="col-lg-9">
+                                <input type="text" placeholder="La dirección de vivienda 1" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Dirección 2:</label>
+                            <div class="col-lg-9">
+                                <input type="text" placeholder="La dirección de vivienda 2" class="form-control">
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="col-md-6">
+                    <fieldset>
+                        <legend class="text-semibold"><i class="icon-reading position-left"></i> Acceso a cuenta</legend>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Usuario:</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" placeholder="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Contraseña:</label>
+                            <div class="col-lg-9">
+                                <input type="password" class="form-control" placeholder="Una contraseña super segura">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Adjuntar imagen:</label>
+                            <div class="col-lg-9">
+                                <input type="file" class="file-styled">
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <fieldset>
+                        <legend class="text-semibold"><i class="icon-reading position-left"></i> Asignar Permisos</legend>
+                        <select multiple="multiple" class="form-control system-roles-listbox"></select>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="text-right">
+                <button type="submit" class="btn btn-primary">
+                    Guardar
+                    <i class="icon-arrow-right14 position-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
+<!-- /2 columns form -->

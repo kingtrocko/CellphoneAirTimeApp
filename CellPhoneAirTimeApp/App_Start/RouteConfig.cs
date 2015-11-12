@@ -14,6 +14,21 @@ namespace CellPhoneAirTimeApp
                url: "mysettings/{*catchall}",
                defaults: new { controller = "Account", action = "MySettings" });
 
+            routes.MapRoute(
+               name: "users",
+               url: "security/users/{*catchall}",
+               defaults: new { controller = "Security", action = "Users" });
+
+            routes.MapRoute(
+              name: "privileges",
+              url: "security/privileges/{*catchall}",
+              defaults: new { controller = "Security", action = "Privileges" });
+
+            routes.MapRoute(
+              name: "roles",
+              url: "security/roles/{*catchall}",
+              defaults: new { controller = "Security", action = "Roles" });
+
             routes.MapMvcAttributeRoutes();
 
             routes.MapRoute(

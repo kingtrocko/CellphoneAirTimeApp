@@ -120,9 +120,25 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App\App.js" />
+    <Content Include="App\Components\Privileges\App.js" />
+    <Content Include="App\Components\Privileges\NewPrivilegeController.js" />
+    <Content Include="App\Components\Privileges\PrivilegesListController.js" />
+    <Content Include="App\Components\Privileges\Views\PrivilegeForm.html" />
+    <Content Include="App\Components\Privileges\Views\PrivilegesList.html" />
+    <Content Include="App\Components\Roles\App.js" />
+    <Content Include="App\Components\Roles\NewRoleController.js" />
+    <Content Include="App\Components\Roles\RolesListController.js" />
+    <Content Include="App\Components\Roles\Views\RolForm.html" />
+    <Content Include="App\Components\Roles\Views\RolesList.html" />
     <Content Include="App\Components\Settings\App.js" />
     <Content Include="App\Components\Settings\SettingsController.js" />
     <Content Include="App\Components\Settings\Views\MySettingsInfo.html" />
+    <Content Include="App\Components\Users\App.js" />
+    <Content Include="App\Components\Users\NewUserController.js" />
+    <Content Include="App\Components\Users\UsersListController.js" />
+    <Content Include="App\Components\Users\Views\UserForm.html" />
+    <Content Include="App\Components\Users\Views\UsersList.html" />
+    <Content Include="App\ServerErrors.html" />
     <Content Include="App\Validator.js" />
     <Content Include="assets\css\bootstrap.css" />
     <Content Include="assets\css\bootstrap\media.css" />
@@ -204,7 +220,8 @@
     <Content Include="assets\js\layout_fixed_custom.js" />
     <Content Include="assets\js\navbar_fixed_secondary.js" />
     <Content Include="assets\js\pages\my_settings.js" />
-    <Content Include="assets\js\pages\my_users.js" />
+    <Content Include="assets\js\pages\new_user.js" />
+    <Content Include="assets\js\pages\datatable.js" />
     <Content Include="assets\js\plugins\buttons\hover_dropdown.min.js" />
     <Content Include="assets\js\plugins\buttons\ladda.min.js" />
     <Content Include="assets\js\plugins\buttons\spin.min.js" />
@@ -1172,6 +1189,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\API\SecurityApiController.cs" />
     <Compile Include="Controllers\MVC\AccountController.cs" />
     <Compile Include="Controllers\API\AccountApiController.cs" />
     <Compile Include="Controllers\MVC\SecurityController.cs" />
@@ -1179,6 +1197,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\SecurityModels.cs" />
+    <Compile Include="Models\ValidateModelAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -1411,6 +1430,7 @@
     <Content Include="Views\Security\Privileges.cshtml" />
     <Content Include="Views\Security\Roles.cshtml" />
     <Content Include="Views\Security\Users.cshtml" />
+    <Content Include="Views\Shared\PageFooter.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

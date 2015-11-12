@@ -1,4 +1,5 @@
 ﻿using System.Web.Http;
+using CellPhoneAirTimeApp.Models;
 
 namespace CellPhoneAirTimeApp
 {
@@ -6,7 +7,7 @@ namespace CellPhoneAirTimeApp
     {
         public static void Register(HttpConfiguration config)
         {
-            // TODO: Add any additional configuration code.
+            config.Filters.Add(new ValidateModelAttribute());
 
             // Web API routes
             config.MapHttpAttributeRoutes();

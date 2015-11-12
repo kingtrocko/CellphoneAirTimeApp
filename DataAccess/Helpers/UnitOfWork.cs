@@ -6,12 +6,14 @@ namespace DataAccess.Helpers
 {
     public class UnitOfWork : IUnitOfWork
     {
+        private readonly ISessionFactory _sessionFactory;
         private readonly ITransaction _transaction;
         public ISession Session { get; private set; }
 
         public UnitOfWork(ISessionFactory sessionFactory)
         {
-            Session = sessionFactory.OpenSession();
+            _sessionFactory = sessionFactory;
+            Session = _sessionFactory.OpenSession();
             Session.FlushMode = FlushMode.Auto;
             _transaction = Session.BeginTransaction(IsolationLevel.ReadCommitted);
         }
@@ -28,6 +30,7 @@ namespace DataAccess.Helpers
             {
                 throw new InvalidOperationException("No active transaction");
             }
+            _transaction.Commit();
         }
 
         public void RollBack()

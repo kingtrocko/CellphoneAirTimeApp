@@ -9,11 +9,23 @@
 }
 
 @section jsCode {
-      angular.bootstrap(document.getElementById("my-settings"), ['settings']);
+    angular.bootstrap(document.getElementById("my-settings"), ['settings']);
+    @*$(document).ready(function(){
+        $('#navbar-filter li').on('click', function(){
+            if( $(this).children('a')[0].attributes['data-target'] === '#settings' ){
+                $('#selist').remove();
+                $('form[name="settings-form"]').prepend('<div id="selist" server-errors></div>');
+            }else{
+                $('#selist').remove();
+                $('form[name="reset-password-form"]').prepend('<div id="selist" server-errors></div>');
+            }
+            
+        });
+    });*@
 }
 
 <!-- Main content  -->
-<div class="content-wrapper" id="my-settings" ng-controller="MySettingsController">
+<div class="content-wrapper" id="my-settings">
     <!-- Page header -->
     <div class="page-header">
         <!-- Header content -->
@@ -38,8 +50,12 @@
             </ul>
             <div class="navbar-collapse collapse" id="navbar-filter">
                 <ul class="nav navbar-nav element-active-slate-400">
-                    <li class="active"><a data-target="#settings" data-toggle="tab"><i class="icon-cog3 position-left"></i>Configuración de cuenta</a></li>
-                    <li><a data-target="#reset-password-form" data-toggle="tab"><i class="icon-cog3 position-left"></i>Cambiar contraseña</a></li>
+                    <li class="active">
+                        <a data-target="#settings" data-toggle="tab"><i class="icon-cog3 position-left"></i>Configuración de cuenta</a>
+                    </li>
+                    <li>
+                        <a data-target="#reset-password-form" data-toggle="tab"><i class="icon-cog3 position-left"></i>Cambiar contraseña</a>
+                    </li>
                 </ul>
             </div>
         </div>

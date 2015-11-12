@@ -5,7 +5,61 @@ commonModule.factory('viewModelHelper', [ '$http', '$q', '$window', '$location',
     function($http, $q, $window, $location) {
          return MyApp.viewModelHelper($http, $q, $window, $location);
     }]);
+
 commonModule.factory('validator', function () { return valJs.validator(); });
+
+commonModule.factory('blockUiService', function () {
+        var hasError = true;
+        return {
+            setError: function(e) {
+                hasError = e;
+            },
+            blockPage: function () {
+                $.blockUI({
+                    message: '<span class="text-semibold"><i class="icon-spinner4 spinner position-left"></i>&nbsp; Guardando</span>',
+                    timeout: 0,
+                    overlayCSS: {
+                        backgroundColor: '#1b2024',
+                        opacity: 0.8,
+                        cursor: 'wait'
+                    },
+                    css: {
+                        border: 0,
+                        color: '#fff',
+                        padding: 0,
+                        backgroundColor: 'transparent'
+                    },
+                    onUnblock: function() {
+                        var title = '', text = '', icon = '', type = '', addclass = '';
+
+                        if (!hasError) {
+                            title = 'Exito';
+                            text = 'La información se guardó exitosamente.';
+                            icon = 'icon-checkmark3';
+                            type = 'success';
+                        } else {
+                            title = 'Error al Guardar';
+                            text = 'Por favor revisa los errores.';
+                            addclass = 'alert-styled-right';
+                            type = 'error';
+                        }
+                        var msg = new PNotify({
+                            title: title,
+                            text: text,
+                            icon: icon,
+                            addclass: addclass,
+                            type: type,
+                            buttons: {
+                                closer: true,
+                                sticker: false
+                            }
+                        });
+                    }
+                });
+            }
+        };
+    }
+);
 
 
 (function (myApp) {
